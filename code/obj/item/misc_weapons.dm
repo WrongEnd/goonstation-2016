@@ -5,6 +5,7 @@
 // - Dagger
 // - Butcher's knife
 // - Axe
+// - Bat
 
 ////////////////////////////////////////////// Weapon parent //////////////////////////////////
 /* unused now
@@ -299,3 +300,18 @@
 
 /obj/item/axe/vr
 	icon = 'icons/effects/VR.dmi'
+
+///////////////////////////////// Baseball Bat ////////////////////////////////////////////////////////////
+
+/obj/item/bat
+	name = "Baseball Bat"
+	desc = "Play ball! Note: Batter is responsible for any injuries sustained due to ball-hitting."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "sword1-G"
+	hit_type = DAMAGE_BLUNT
+	force = 15
+	throwforce = 20
+	stamina_damage = 35
+	stamina_cost = 30
+	stamina_crit_chance = 35
+

@@ -25,6 +25,28 @@
 
 /atom/proc/throw_impact(atom/hit_atom)
 
+
+	if(iscarbon(hit_atom))
+		var/mob/living/carbon/human/C = hit_atom //fuck you, monkeys
+		var/turf/T = get_turf(C)
+		var/turf/U = get_step(C, C.dir)
+
+
+		if(C && istype(src, /atom/movable))
+			var/atom/movable/A = src
+			if (C.find_type_in_hand(/obj/item/bat))
+				if (prob(1))
+					A.throw_at(get_edge_target_turf(C,get_dir(C, U)), 50, 60)
+					playsound(T, 'sound/items/woodbat.ogg', 50, 1)
+					playsound(T, 'sound/items/batcheer.ogg', 50, 1)
+					C.visible_message("<span style=\"color:red\">[C] hits the [src.name] with the bat and scores a HOMERUN! Woah!!!!</span>")
+				else
+					A.throw_at(get_edge_target_turf(C,get_dir(C, U)), 50, 25)
+					playsound(T, 'sound/items/woodbat.ogg', 50, 1)
+					C.visible_message("<span style=\"color:red\">[C] hits the [src.name] with the bat!</span>")
+
+				return 1
+
 	if(src.material) src.material.triggerOnAttack(src, src, hit_atom)
 	for(var/atom/A in hit_atom)
 		if(A.material)
